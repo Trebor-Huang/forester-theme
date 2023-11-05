@@ -65,17 +65,29 @@
     <xsl:text>December</xsl:text>
   </xsl:template>
 
-  <xsl:template match="date">
-    <li class="meta-item">
-      <xsl:apply-templates select="month" />
+  <xsl:template match="date" mode="date-inner">
+    <xsl:apply-templates select="month" />
       <xsl:if test="day">
-        <xsl:text> </xsl:text>
-        <xsl:apply-templates select="day" />
-      </xsl:if>
+      <xsl:text> </xsl:text>
+      <xsl:apply-templates select="day" />
+    </xsl:if>
       <xsl:if test="month">
-        <xsl:text>, </xsl:text>
-      </xsl:if>
-      <xsl:apply-templates select="year" />
+      <xsl:text>, </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates select="year" />
+  </xsl:template>
+
+  <xsl:template match="date[@href]">
+    <li class="meta-item">
+      <a href="{@href}" class="local">
+        <xsl:apply-templates select="." mode="date-inner" />
+      </a>
+    </li>
+  </xsl:template>
+  
+  <xsl:template match="date[not(@href)]">
+    <li class="meta-item">
+      <xsl:apply-templates select="." mode="date-inner" />
     </li>
   </xsl:template>
 

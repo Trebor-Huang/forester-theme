@@ -178,14 +178,16 @@
             <xsl:text>#tree-</xsl:text>
             <xsl:value-of select="anchor" />
           </xsl:attribute>
-          <span class="toc-item-label">
+          <span
+            class="toc-item-label">
             <xsl:apply-templates select="taxon" />
             <xsl:apply-templates select="trail" />
             <xsl:if test="trail/crumb">
               <xsl:text>. </xsl:text>
             </xsl:if>
           </span>
-          <xsl:apply-templates select="title" />
+          <xsl:apply-templates
+            select="title" />
         </xsl:for-each>
       </a>
       <xsl:apply-templates select="mainmatter" mode="toc" />
@@ -269,7 +271,8 @@
     <pre><xsl:value-of select="." /></pre>
   </xsl:template>
 
-  <xsl:template match="meta[@name='venue']|meta[@name='position']|meta[@name='institution']|meta[@name='source']">
+  <xsl:template
+    match="meta[@name='venue']|meta[@name='position']|meta[@name='institution']|meta[@name='source']">
     <li class="meta-item">
       <xsl:apply-templates />
     </li>
@@ -450,7 +453,8 @@
         </section>
       </xsl:otherwise>
     </xsl:choose>
-    <xsl:apply-templates select="self::*[@root != 'true']/backmatter" />
+    <xsl:apply-templates
+      select="self::*[@root != 'true']/backmatter" />
   </xsl:template>
 
   <xsl:template match="backmatter/*/tree">

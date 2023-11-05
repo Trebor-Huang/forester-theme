@@ -244,7 +244,7 @@
   </xsl:template>
 
   <xsl:template match="tree/frontmatter/source-path">
-    <a class="edit-button" href="{concat('vscode://file/', .)}">
+    <a class="edit-button" href="{concat('vscode://file', .)}">
       <xsl:text>[edit]</xsl:text>
     </a>
   </xsl:template>

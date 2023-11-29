@@ -225,7 +225,7 @@ details h1 {
   display: inline;
 }
 
-section .block[data-taxon]>details>summary>header>h1 {
+section .block[data-taxon] details>summary>header>h1 {
   font-size: 12pt;
 }
 

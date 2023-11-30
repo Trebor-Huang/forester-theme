@@ -147,6 +147,16 @@
         </script>
 
         <script type="module" src="forester.js"></script>
+        <script>
+          const evtSource = new EventSource("reload");
+          evtSource.onmessage = (event) => {
+            if (event.data == "reload") {
+              location.reload();
+            } else {
+              console.log(event.data);
+            }
+          };
+        </script>
         <title>
           <xsl:value-of select="/tree/frontmatter/title" />
         </title>

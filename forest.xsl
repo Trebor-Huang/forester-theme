@@ -198,7 +198,7 @@
   <xsl:template match="tree" mode="toc">
     <li>
       <xsl:for-each select="frontmatter">
-        <a href="{route}" class="bullet">■</a>
+        <a href="{route}" class="bullet" title="{title} [{addr}]">■</a>
         <a>
           <xsl:attribute name="href">
             <xsl:text>#tree-</xsl:text>

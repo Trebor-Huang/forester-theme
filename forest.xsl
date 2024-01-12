@@ -399,7 +399,7 @@
       </xsl:choose>
       <xsl:text>&#160;</xsl:text>
       <xsl:choose>
-        <xsl:when test="/tree/mainmatter//tree[frontmatter/addr/text()=current()/@addr]">
+        <xsl:when test="/tree/mainmatter//tree[frontmatter/addr/text()=current()/@addr and @numbered='true' and @toc='true']">
           <xsl:apply-templates select="/tree/mainmatter//tree[frontmatter/addr/text()=current()/@addr][1]" mode="tree-number"/>
         </xsl:when>
         <xsl:otherwise>

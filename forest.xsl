@@ -373,6 +373,44 @@
     </header>
   </xsl:template>
 
+  <xsl:template match="tree" mode="tree-number">
+    <xsl:number format="1.1" count="tree[@toc='true' and @numbered='true']" level="multiple" />
+  </xsl:template>
+
+  <xsl:template match="ref">
+    <a class="local">
+      <xsl:attribute name="href">
+        <xsl:choose>
+          <xsl:when test="/tree/mainmatter//tree[frontmatter/addr/text()=current()/@addr]">
+            <xsl:text>#tree-</xsl:text>
+            <xsl:value-of select="/tree/mainmatter//tree[frontmatter/addr/text()=current()/@addr]/frontmatter/anchor" />
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="@href"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:attribute>
+
+      <xsl:choose>
+        <xsl:when test="@taxon">
+          <xsl:value-of select="@taxon"/>
+        </xsl:when>
+        <xsl:otherwise>§</xsl:otherwise>
+      </xsl:choose>
+      <xsl:text>&#160;</xsl:text>
+      <xsl:choose>
+        <xsl:when test="/tree/mainmatter//tree[frontmatter/addr/text()=current()/@addr]">
+          <xsl:apply-templates select="/tree/mainmatter//tree[frontmatter/addr/text()=current()/@addr][1]" mode="tree-number"/>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:text>[</xsl:text>
+            <xsl:value-of select="@addr" />
+            <xsl:text>]</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </a>
+  </xsl:template>
+
   <xsl:template match="backmatter/references">
     <xsl:if test="tree">
       <section class="block link-list">

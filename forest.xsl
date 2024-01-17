@@ -206,8 +206,8 @@
           </xsl:attribute>
           <span class="taxon toc-item-label">
             <xsl:apply-templates select="taxon" />
-            <xsl:if test="taxon"><xsl:text>&#160;</xsl:text></xsl:if>
             <xsl:if test="../@numbered='true' and ../@toc='true'">
+              <xsl:if test="taxon"><xsl:text>&#160;</xsl:text></xsl:if>
               <xsl:number format="1.1" count="tree[@toc='true' and @numbered='true']" level="multiple" />
             </xsl:if>
             <xsl:if test="taxon or (../@numbered='true' and ../@toc='true')">

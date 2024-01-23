@@ -607,6 +607,6 @@ ol > li > ol {
  list-style-type: lower-alpha;
 }
 
-.hg-article-body ol > li > ol > li > ol {
+ol > li > ol > li > ol {
  list-style-type: lower-roman;
 }

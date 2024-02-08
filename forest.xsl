@@ -103,6 +103,12 @@
    </center>
   </xsl:template>
 
+  <xsl:template match="error">
+   <span class="error">
+    <xsl:apply-templates/>
+   </span>
+  </xsl:template>
+
   <xsl:template match="link">
     <a class="{@type}" href="{@href}">
       <xsl:choose>

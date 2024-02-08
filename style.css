@@ -610,3 +610,9 @@ ol li ol {
 ol li ol li ol {
  list-style-type: lower-roman;
 }
+
+.error {
+ background-color: red;
+ font-weight: bold;
+ color: white;
+}

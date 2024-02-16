@@ -361,6 +361,9 @@ nav#toc li {
 .orcid {
   color: gray;
   font-weight: 200;
+  font-family: monospace;
+  font-size: smaller;
+  /* Accounts for the fact that monospace fonts are wider. */
 }
 
 .edit-button {

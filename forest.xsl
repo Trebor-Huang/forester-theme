@@ -297,6 +297,17 @@
     </pre>
   </xsl:template>
 
+  <xsl:template match="meta[@name='generalizes']">
+    <li>
+      <xsl:text>Generalizes </xsl:text>
+      <a class="slug" href="{.}.xml">
+        <xsl:text>[</xsl:text>
+        <xsl:value-of select="." />
+        <xsl:text>]</xsl:text>
+      </a>
+    </li>
+  </xsl:template>
+
   <xsl:template match="meta[@name='venue']|meta[@name='position']|meta[@name='institution']|meta[@name='source']">
     <li class="meta-item">
       <xsl:apply-templates />
@@ -383,6 +394,7 @@
           <xsl:apply-templates select="meta[@name='external']" />
           <xsl:apply-templates select="meta[@name='slides']" />
           <xsl:apply-templates select="meta[@name='video']" />
+          <xsl:apply-templates select="meta[@name='generalizes']" />
         </ul>
       </div>
     </header>

@@ -140,7 +140,8 @@ body>header {
 }
 
 #grid-wrapper>article {
-  max-width: 90ex;
+  max-width: 40em;
+  margin-left: auto;
   margin-right: auto;
   grid-column: 1;
 }

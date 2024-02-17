@@ -207,9 +207,11 @@
     </li>
   </xsl:template>
   <xsl:template match="mainmatter" mode="toc">
-    <ul class="block">
-      <xsl:apply-templates select="tree[@toc='true']" mode="toc" />
-    </ul>
+    <xsl:if test="tree[@toc='true']">
+      <ul class="block">
+        <xsl:apply-templates select="tree[@toc='true']" mode="toc" />
+      </ul>
+    </xsl:if>
   </xsl:template>
   <xsl:template match="frontmatter/title">
     <xsl:apply-templates />

@@ -20,6 +20,11 @@ h5,
 h6,
 p {
   margin-top: 0;
+  margin-bottom: 0.8em;
+}
+
+p:last-child {
+  margin-bottom: 0;
 }
 
 h1,
@@ -195,13 +200,8 @@ article>section>details>summary>header {
   margin-bottom: .5em;
 }
 
-section.block>details {
-  margin-bottom: 0.4em;
-}
-
-
-section.block>details[open] {
-  margin-bottom: 1em;
+section.block>details:not(:last-child) {
+  margin-bottom: 0.5em;
 }
 
 
@@ -261,6 +261,10 @@ nav#toc li {
 
 .block {
   border-radius: var(--radius)
+}
+
+.block:not(:last-child) {
+  margin-bottom: 0.5em;
 }
 
 .block:hover {

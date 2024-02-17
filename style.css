@@ -222,7 +222,7 @@ nav#toc a {
   color: #555;
 }
 
-nav#toc a {
+nav#toc .link {
  box-shadow: none;
  text-decoration: none;
 }
@@ -281,16 +281,6 @@ nav#toc li {
   border-color: #aaa;
 }
 
-.block>.block-uid {
-  visibility: hidden;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.block:hover>.block-uid {
-  visibility: visible;
-}
-
 .slug,
 .doi,
 .orcid {
@@ -315,27 +305,17 @@ nav#toc li {
   border-radius: 5px;
 }
 
-.block>.toggle-children-button {
-  padding-right: 3pt;
-  visibility: hidden;
-  float: right;
-}
-
-.block:hover>.toggle-children-button {
-  visibility: visible;
-}
-
-a.external {
+.link.external {
   text-decoration: underline;
 }
 
-
-a.local,
+a.link.local,
+.link.local a,
 a.slug {
   box-shadow: none;
-  text-decoration: underline;
+  text-decoration-line: underline;
   text-decoration-style: dotted;
-}
+ }
 
 ninja-keys::part(ninja-action) {
   white-space: nowrap;
@@ -463,12 +443,20 @@ blockquote {
   border-inline-start: 1px solid var(--secondary);
 }
 
-a:hover {
+a.slug:hover,
+a.bullet:hover,
+.edit-button:hover,
+.link:hover {
   background-color: rgba(0, 100, 255, .1);
+}
+
+.link {
+ cursor: pointer;
 }
 
 a {
   color: black;
+  text-decoration: inherit;
 }
 
 .nowrap {
@@ -529,4 +517,26 @@ hr {
   border: 0 none;
   width: 100%;
   height: 2px;
+}
+
+ul, ol {
+ padding-bottom: .5em;
+}
+
+ol {
+ list-style-type: decimal;
+}
+
+ol li ol {
+ list-style-type: lower-alpha;
+}
+
+ol li ol li ol {
+ list-style-type: lower-roman;
+}
+
+.error {
+ background-color: red;
+ font-weight: bold;
+ color: white;
 }

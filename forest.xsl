@@ -91,7 +91,7 @@
   </xsl:template>
   <xsl:template match="embedded-tex">
     <center>
-      <img src="resources/{@hash}.svg" />
+      <img class="embedded-tex" src="resources/{@hash}.svg" />
     </center>
   </xsl:template>
   <xsl:template match="error">
@@ -383,9 +383,11 @@
           <xsl:apply-templates select="/tree/mainmatter//tree[frontmatter/addr/text()=current()/@addr][1]" mode="tree-number" />
         </xsl:when>
         <xsl:otherwise>
-          <xsl:text>[</xsl:text>
-          <xsl:value-of select="@addr" />
-          <xsl:text>]</xsl:text>
+          <span class="slug">
+            <xsl:text>[</xsl:text>
+            <xsl:value-of select="@addr" />
+            <xsl:text>]</xsl:text>
+          </span>
         </xsl:otherwise>
       </xsl:choose>
     </a>

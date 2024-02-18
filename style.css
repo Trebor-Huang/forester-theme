@@ -35,11 +35,14 @@ h4 {
 }
 
 pre,
-img,
 .katex-display,
 section,
 center {
   overflow-y: hidden;
+}
+
+img.embedded-tex {
+  overflow-y: visible;
 }
 
 .katex-display { margin: 0.4em 0 !important }
@@ -146,8 +149,6 @@ body>header {
 
 #grid-wrapper>article {
   max-width: 40em;
-  margin-left: auto;
-  margin-right: auto;
   grid-column: 1;
 }
 
@@ -243,6 +244,7 @@ nav#toc h2 {
 
 nav#toc ul {
   list-style-type: none;
+  margin: auto;
 }
 
 nav#toc li > ul {
@@ -260,7 +262,13 @@ nav#toc li {
 .katex { font-size: 1em !important; } 
 
 .block {
-  border-radius: var(--radius)
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: all .2s ease-in
+}
+
+.block:first-child {
+  margin-top: 0.3em;
 }
 
 .block:not(:last-child) {
@@ -269,6 +277,7 @@ nav#toc li {
 
 .block:hover {
   background-color: rgba(0, 100, 255, 0.04);
+  border: 1px solid rgb(0, 100, 255, .5);
 }
 
 .block.highlighted {
@@ -297,6 +306,7 @@ nav#toc li {
 .edit-button {
   color: rgb(180, 180, 180);
   font-weight: 200;
+  font-family: "CMU Typewriter Text", monospace;
 }
 
 .error {
@@ -304,8 +314,8 @@ nav#toc li {
 }
 
 .block {
-  padding-left: 5px;
-  padding-right: 10px;
+  padding-left: 2px;
+  padding-right: 5px;
   padding-bottom: 2px;
   border-radius: 5px;
 }

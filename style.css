@@ -6,6 +6,14 @@
   --font: "CMU Sans", sans-serif
 }
 
+body {
+  font-family: var(--font);
+  font-size: 12pt;
+  line-height: 1.5em;
+  hyphens: auto;
+  text-align: justify;
+}
+
 h1,
 h2,
 h3,
@@ -14,6 +22,10 @@ h5,
 h6 {
   line-height: 1.2;
   margin-bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6, summary {
+  text-align: start;
 }
 
 h5,
@@ -35,12 +47,12 @@ h4 {
 }
 
 pre,
-.katex-display,
 section,
 center {
   overflow-y: hidden;
 }
 
+.katex-display,
 img.embedded-tex {
   overflow-y: visible;
 }
@@ -66,12 +78,6 @@ code {
   background-color: rgba(0, 100, 100, 0.04);
   padding: 0.2em;
   font-size: 0.9em;
-}
-
-body {
-  font-family: var(--font);
-  font-size: 12pt;
-  line-height: 1.5em;
 }
 
 .logo {
@@ -336,10 +342,6 @@ ninja-keys::part(ninja-action) {
   white-space: nowrap;
 }
 
-body {
-  hyphens: auto;
-}
-
 table {
   margin-bottom: 1em;
 }
@@ -536,6 +538,7 @@ hr {
 
 ul, ol {
  padding-bottom: .5em;
+ margin: auto;
 }
 
 ol {

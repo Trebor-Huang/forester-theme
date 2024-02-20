@@ -135,7 +135,7 @@
     <xsl:text>\)</xsl:text>
   </xsl:template>
   <xsl:template match="/">
-    <html>
+    <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width" />
         <link rel="stylesheet" href="style.css" />

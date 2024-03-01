@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="forest.xsl"?>
-<tree expanded="true" show-heading="true" show-metadata="true" toc="false" numbered="false" root="false"><frontmatter><anchor>236</anchor>  <taxon>Construction</taxon> <addr>hmlg-0012</addr> <source-path>/Users/trebor/Desktop/blog/forest/trees/hmlg-0012.tree</source-path> <route>hmlg-0012.xml</route> <date><year>2024</year> <month>2</month> <day>20</day></date> <authors><author><link href="trebor.xml" type="local" trebor="addr">Trebor</link></author> </authors> <title>Long exact sequence of homologies</title>  </frontmatter> <mainmatter><p>
-  Given a short exact sequence of chain complexes
-  <tex display="block">0  \to  A_ \bullet   \to  B_ \bullet   \to  C_ \bullet   \to  0,</tex>
-  there is a long exact sequence of homology groups
-  <tex display="block">\cdots   \to  H_{n+1}(C)  \xrightarrow { \partial }  H_n(A)  \to  H_n (B)  \to  H_n (C)  \xrightarrow { \partial }  H_{n-1} (A)  \to   \cdots</tex>
-  The map <tex>\partial</tex> here is, after unpacking some quotients, simply the boundary map <tex>B_n  \to  B_{n-1}</tex>.
-</p></mainmatter> <backmatter><contributions/> <context/> <related/> <backlinks/> <references/></backmatter></tree>

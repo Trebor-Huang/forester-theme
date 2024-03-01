@@ -341,10 +341,16 @@ nav#toc li {
 
 .slug,
 .doi,
-.orcid {
+.orcid,
+.edit-button,
+.link.raw {
   color: gray;
   font-weight: 200;
   font-family: var(--monospace);
+  hyphenate-character: "";
+}
+
+.doi, .orcid, .link.raw {
   line-break: anywhere;
 }
 
@@ -370,7 +376,7 @@ a.slug {
   text-decoration: underline 1px #11222255;
 }
 
-.link.external::after, .edit-button {
+.link.external::after, .edit-button::after {
   background-size: 100% 100%;
   content: "";
   display: inline-block;
@@ -382,11 +388,12 @@ a.slug {
 
 .link.external::after {
   background-image: url("link-external.svg");
+  margin-left: 1pt;
 }
 
-.edit-button {
+.edit-button::after {
   background-image: url("edit.svg");
-  margin-left: -0.5em;
+  margin-left: -2pt;
 }
 
 ninja-keys::part(ninja-action) {

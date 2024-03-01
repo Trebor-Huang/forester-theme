@@ -268,7 +268,9 @@
     </a>
   </xsl:template>
   <xsl:template match="tree/frontmatter/source-path">
-    <a class="edit-button" href="{concat('vscode://file', .)}"/>
+    <a class="edit-button" href="{concat('vscode://file', .)}">
+      <xsl:text>[edit]</xsl:text>
+    </a>
   </xsl:template>
   <xsl:template match="meta[@name='doi']">
     <li class="meta-item">
@@ -308,7 +310,7 @@
   </xsl:template>
   <xsl:template match="meta[@name='external']">
     <li class="meta-item">
-      <a class="link external" href="{.}">
+      <a class="link external raw" href="{.}">
         <xsl:value-of select="." />
       </a>
     </li>

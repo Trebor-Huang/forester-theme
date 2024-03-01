@@ -1,6 +1,7 @@
 const { XMLParser, XMLBuilder } = require('fast-xml-parser');
 const katex = require('katex');
 const fs = require('node:fs/promises');
+const path = require('node:path');
 
 function recurse(obj) {
   for (const key in obj) {
@@ -26,21 +27,33 @@ function recurse(obj) {
   }
 }
 
-async function test() {
-  const file = await fs.readFile("./test.xml");
+async function convert(name) {
+  const file = await fs.readFile(name);
   const options = {
     ignoreAttributes: false,
     attributeNamePrefix: "@_",
     alwaysCreateTextNode: true,
     preserveOrder: true,
-    trimValues: false
+    trimValues: false,
+    parseTagValue: false,
+    parseAttributeValue: false
   };
   let parser = new XMLParser(options);
   let obj = parser.parse(file);
   recurse(obj);
   let builder = new XMLBuilder(options);
   const result = builder.build(obj);
-  await fs.writeFile("./testr.xml", result);
+  await fs.writeFile(name, result);
 }
 
-test();
+async function start() {
+  const files = await fs.readdir("output");
+  for (const file of files) {
+    if (file.endsWith("xml")) {
+      console.log("Converting", file);
+      convert(path.join("output", file));
+    }
+  }
+}
+
+start();

@@ -10,7 +10,10 @@ function partition(array, isValid) {
 }
 
 window.addEventListener("load", (event) => {
- autoRenderMath(document.body)
+ autoRenderMath(document.body,
+  {
+    throwOnError: false
+  })
 
  const openAllDetailsAbove = elt => {
   while (elt != null) {

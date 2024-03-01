@@ -1,17 +1,56 @@
 ﻿/* SPDX-License-Identifier: CC0-1.0 */
+@font-face {
+  font-family: Text;
+  src: url("fonts/otf/NewCM10-Book.otf");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Text;
+  src: url("fonts/otf/NewCM10-Bold.otf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Text;
+  src: url("fonts/otf/NewCM10-Italic.otf");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Text;
+  src: url("fonts/otf/NewCM10-BoldItalic.otf");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Link;
+  src: url("fonts/otf/NewCMMono10-Regular.otf");
+}
+
 
 :root {
   --content-gap: 15px;
   --radius: 5px;
-  --font: "CMU Sans", sans-serif
+  --font: Text, "Source Han Serif SC VF", serif;
+  --monospace: Link, monospace;
 }
 
 body {
   font-family: var(--font);
+  text-underline-position: from-font;
   font-size: 12pt;
   line-height: 1.5em;
   hyphens: auto;
+}
+
+.tree-content {
   text-align: justify;
+}
+
+summary {
+  text-align: initial;
 }
 
 h1,
@@ -24,10 +63,6 @@ h6 {
   margin-bottom: 0;
 }
 
-h1, h2, h3, h4, h5, h6, summary {
-  text-align: start;
-}
-
 h5,
 h6,
 p {
@@ -37,6 +72,10 @@ p {
 
 p:last-child {
   margin-bottom: 0;
+}
+
+p:empty {
+  margin: 0;
 }
 
 h1,
@@ -102,7 +141,6 @@ article>section>details>summary>header>h1>.taxon {
   display: block;
   font-size: .9em;
   color: #888;
-  padding-bottom: 5pt;
 }
 
 section section[data-taxon="Reference"]>details>summary>header>h1>.taxon,
@@ -208,7 +246,7 @@ article>section>details>summary>header {
 }
 
 section.block>details:not(:last-child) {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.3em;
 }
 
 
@@ -265,7 +303,7 @@ nav#toc li {
   font-weight: bolder;
 }
 
-.katex { font-size: 1em !important; } 
+.katex { font-size: 1em !important; }
 
 .block {
   border-radius: var(--radius);
@@ -306,13 +344,12 @@ nav#toc li {
 .orcid {
   color: gray;
   font-weight: 200;
-  font-family: "CMU Typewriter Text", monospace;
+  font-family: var(--monospace);
+  line-break: anywhere;
 }
 
-.edit-button {
-  color: rgb(180, 180, 180);
-  font-weight: 200;
-  font-family: "CMU Typewriter Text", monospace;
+a.link.local .slug {
+  color: inherit;
 }
 
 .error {
@@ -326,17 +363,31 @@ nav#toc li {
   border-radius: 5px;
 }
 
-.link.external {
-  text-decoration: underline;
-}
-
+.link.external,
 a.link.local,
 .link.local a,
 a.slug {
-  box-shadow: none;
-  text-decoration-line: underline;
-  text-decoration-style: dotted;
- }
+  text-decoration: underline 1px #11222255;
+}
+
+.link.external::after, .edit-button {
+  background-size: 100% 100%;
+  content: "";
+  display: inline-block;
+  height: 0.7em;
+  width: 0.7em;
+  vertical-align: text-top;
+  margin-top: 0.1em;
+}
+
+.link.external::after {
+  background-image: url("link-external.svg");
+}
+
+.edit-button {
+  background-image: url("edit.svg");
+  margin-left: -0.5em;
+}
 
 ninja-keys::part(ninja-action) {
   white-space: nowrap;
@@ -494,18 +545,21 @@ address {
   display: inline;
 }
 
-
 .metadata ul {
   padding-left: 0;
   display: inline;
 }
 
-.metadata li::after {
+.metadata ul:not(:empty) {
+  padding-block-start: 0.3em;
+}
+
+.metadata li::before {
   content: " · ";
 }
 
-.metadata li:last-child::after {
-  content: "";
+.metadata li:first-child::before {
+  content: " ";
 }
 
 .metadata ul li {

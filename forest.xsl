@@ -185,7 +185,7 @@
   <xsl:template match="tree" mode="toc">
     <li>
       <xsl:for-each select="frontmatter">
-        <a href="{route}" class="bullet" title="{title} [{addr}]">■</a>
+        <a href="{route}" class="bullet" title="{title} [{addr}]"></a>
         <span class="link local" data-target="#tree-{anchor}">
           <span class="taxon toc-item-label">
             <xsl:apply-templates select="taxon" />
@@ -253,9 +253,7 @@
     </a>
   </xsl:template>
   <xsl:template match="tree/frontmatter/source-path">
-    <a class="edit-button" href="{concat('vscode://file', .)}">
-      <xsl:text>[edit]</xsl:text>
-    </a>
+    <a class="edit-button" href="{concat('vscode://file', .)}"/>
   </xsl:template>
   <xsl:template match="meta[@name='doi']">
     <li class="meta-item">
@@ -377,7 +375,7 @@
         </xsl:when>
         <xsl:otherwise>§</xsl:otherwise>
       </xsl:choose>
-      <xsl:text>&#160;</xsl:text>
+      <xsl:text>&#8239;</xsl:text>
       <xsl:choose>
         <xsl:when test="/tree/mainmatter//tree[frontmatter/addr/text()=current()/@addr and @numbered='true' and @toc='true']">
           <xsl:apply-templates select="/tree/mainmatter//tree[frontmatter/addr/text()=current()/@addr][1]" mode="tree-number" />

@@ -125,19 +125,34 @@
     </a>
   </xsl:template>
   <xsl:template match="tex[@display='block']">
-    <xsl:text>\[</xsl:text>
-    <xsl:value-of select="." />
-    <xsl:text>\]</xsl:text>
+    <xsl:choose>
+      <xsl:when test="rendered">
+        <xsl:value-of select="rendered" disable-output-escaping="yes"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>\[</xsl:text>
+        <xsl:value-of select="." />
+        <xsl:text>\]</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   <xsl:template match="tex[not(@display='block')]">
-    <xsl:text>\(</xsl:text>
-    <xsl:value-of select="." />
-    <xsl:text>\)</xsl:text>
+    <xsl:choose>
+      <xsl:when test="rendered">
+        <xsl:value-of select="rendered" disable-output-escaping="yes"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>\(</xsl:text>
+        <xsl:value-of select="." />
+        <xsl:text>\)</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
   <xsl:template match="/">
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cn-fontsource-source-han-serif-sc-vf@1.0.9/font.min.css"/>
         <link rel="stylesheet" href="style.css" />
         <link rel="stylesheet" href="katex.min.css" />
         <xsl:apply-templates select="/tree/frontmatter/rss" />

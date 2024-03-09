@@ -429,31 +429,27 @@
       <xsl:apply-templates select="contributions" />
     </footer>
   </xsl:template>
+  <xsl:template name="lang-attr">
+    <xsl:attribute name="lang">
+      <xsl:choose>
+        <xsl:when test="frontmatter/meta[@name='lang']">
+          <xsl:value-of select="frontmatter/meta[@name='lang']"/>
+        </xsl:when>
+        <xsl:otherwise>en</xsl:otherwise>
+      </xsl:choose>
+    </xsl:attribute>
+  </xsl:template>
   <xsl:template match="/tree|mainmatter/tree">
     <xsl:choose>
       <xsl:when test="@show-heading = 'false'">
         <section class="block">
-          <xsl:attribute name="lang">
-            <xsl:choose>
-              <xsl:when test="frontmatter/meta[@name='lang']">
-                <xsl:value-of select="frontmatter/meta[@name='lang']"/>
-              </xsl:when>
-              <xsl:otherwise>en</xsl:otherwise>
-            </xsl:choose>
-          </xsl:attribute>
+          <xsl:call-template name="lang-attr"/>
           <xsl:apply-templates select="mainmatter" />
         </section>
       </xsl:when>
       <xsl:otherwise>
         <section>
-          <xsl:attribute name="lang">
-            <xsl:choose>
-              <xsl:when test="frontmatter/meta[@name='lang']">
-                <xsl:value-of select="frontmatter/meta[@name='lang']"/>
-              </xsl:when>
-              <xsl:otherwise>en</xsl:otherwise>
-            </xsl:choose>
-          </xsl:attribute>
+          <xsl:call-template name="lang-attr"/>
           <xsl:choose>
             <xsl:when test="@show-metadata = 'false'">
               <xsl:attribute name="class">block hide-metadata</xsl:attribute>

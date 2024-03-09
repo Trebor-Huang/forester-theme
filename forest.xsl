@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <!-- SPDX-License-Identifier: CC0-1.0 -->
 <xsl:stylesheet version="1.0"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:mml="http://www.w3.org/1998/Math/MathML">
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:mml="http://www.w3.org/1998/Math/MathML">
   <xsl:output method="html" encoding="utf-8" indent="yes" doctype-public="" doctype-system="" />
   <!-- The following ensures that node not matched by a template will simply be
    copied into the output. -->
@@ -433,11 +433,27 @@
     <xsl:choose>
       <xsl:when test="@show-heading = 'false'">
         <section class="block">
+          <xsl:attribute name="lang">
+            <xsl:choose>
+              <xsl:when test="frontmatter/meta[@name='lang']">
+                <xsl:value-of select="frontmatter/meta[@name='lang']"/>
+              </xsl:when>
+              <xsl:otherwise>en</xsl:otherwise>
+            </xsl:choose>
+          </xsl:attribute>
           <xsl:apply-templates select="mainmatter" />
         </section>
       </xsl:when>
       <xsl:otherwise>
         <section>
+          <xsl:attribute name="lang">
+            <xsl:choose>
+              <xsl:when test="frontmatter/meta[@name='lang']">
+                <xsl:value-of select="frontmatter/meta[@name='lang']"/>
+              </xsl:when>
+              <xsl:otherwise>en</xsl:otherwise>
+            </xsl:choose>
+          </xsl:attribute>
           <xsl:choose>
             <xsl:when test="@show-metadata = 'false'">
               <xsl:attribute name="class">block hide-metadata</xsl:attribute>

@@ -153,6 +153,7 @@
       <head>
         <meta name="viewport" content="width=device-width" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cn-fontsource-source-han-serif-sc-vf@1.0.9/font.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css"/>
         <link rel="stylesheet" href="style.css" />
         <link rel="stylesheet" href="katex.min.css" />
         <xsl:apply-templates select="/tree/frontmatter/rss" />
@@ -200,7 +201,7 @@
   <xsl:template match="tree" mode="toc">
     <li>
       <xsl:for-each select="frontmatter">
-        <a href="{route}" class="bullet" title="{title} [{addr}]"></a>
+        <a href="{route}" class="bullet" title="{title} [{addr}]"></a>
         <span class="link local" data-target="#tree-{anchor}">
           <span class="taxon toc-item-label">
             <xsl:apply-templates select="taxon" />
@@ -392,7 +393,7 @@
         </xsl:when>
         <xsl:otherwise>§</xsl:otherwise>
       </xsl:choose>
-      <xsl:text>&#8239;</xsl:text>
+      <xsl:text>&#160;</xsl:text>
       <xsl:choose>
         <xsl:when test="/tree/mainmatter//tree[frontmatter/addr/text()=current()/@addr and @numbered='true' and @toc='true']">
           <xsl:apply-templates select="/tree/mainmatter//tree[frontmatter/addr/text()=current()/@addr][1]" mode="tree-number" />

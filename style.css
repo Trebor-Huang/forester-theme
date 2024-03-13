@@ -1,57 +1,30 @@
 ﻿/* SPDX-License-Identifier: CC0-1.0 */
-@font-face {
-  font-family: Text;
-  src: url("fonts/otf/NewCM10-Book.otf");
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Text;
-  src: url("fonts/otf/NewCM10-Bold.otf");
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: Text;
-  src: url("fonts/otf/NewCM10-Italic.otf");
-  font-style: italic;
-}
-
-@font-face {
-  font-family: Text;
-  src: url("fonts/otf/NewCM10-BoldItalic.otf");
-  font-weight: bold;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: Link;
-  src: url("fonts/otf/NewCMMono10-Regular.otf");
-}
-
 
 :root {
   --content-gap: 15px;
   --radius: 5px;
-  --font: Text, "Source Han Serif SC VF", serif;
-  --monospace: Link, monospace;
+  --font: "Computer Modern Serif", "Source Han Serif SC VF", serif;
+  --monospace: "Computer Modern Typewriter", monospace;
 }
 
 body {
   font-family: var(--font);
   text-underline-position: from-font;
   font-size: 12pt;
+  /* Subtly make it thicker */
+  -webkit-text-stroke-width: 0.25pt;
   line-height: 1.5em;
   hyphens: auto;
 }
 
-.tree-content {
+/* .tree-content {
   text-align: justify;
-}
+  word-spacing: -0.05em;
+} 
 
 summary {
   text-align: initial;
-}
+} */
 
 h1,
 h2,
@@ -68,6 +41,10 @@ h6,
 p {
   margin-top: 0;
   margin-bottom: 0.8em;
+}
+
+p {
+  margin-left: 0.3em;
 }
 
 p:last-child {
@@ -277,9 +254,13 @@ nav#toc a.bullet {
  opacity: 0.7;
  margin-left: 0.4em;
  margin-right: 0.3em;
- padding-left: 0.2em;
- padding-right: 0.2em;
- text-decoration: none;
+ display: inline-block;
+ border-left: 0.5em solid;
+ border-top: 0.35em solid transparent;
+ border-bottom: 0.35em solid transparent;
+ vertical-align: baseline;
+ width: 0px;
+ height: 0px;
 }
 
 nav#toc h2 {
@@ -303,7 +284,10 @@ nav#toc li {
   font-weight: bolder;
 }
 
-.katex { font-size: 1em !important; }
+.katex {
+  font-size: 1em !important;
+  -webkit-text-stroke-width: 0pt;
+}
 
 .block {
   border-radius: var(--radius);
@@ -519,10 +503,13 @@ blockquote {
 }
 
 a.slug:hover,
-a.bullet:hover,
 .edit-button:hover,
 .link:hover {
   background-color: rgba(0, 100, 255, .1);
+}
+
+a.bullet:hover {
+  color: black;
 }
 
 .link {
@@ -566,7 +553,7 @@ address {
 }
 
 .metadata li:first-child::before {
-  content: " ";
+  content: "— ";
 }
 
 .metadata ul li {

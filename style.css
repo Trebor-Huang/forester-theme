@@ -199,7 +199,6 @@ span.taxon {
   font-weight: bolder;
 }
 
-
 .link-list>section>details>summary>header h1 {
   font-size: 12pt;
 }
@@ -251,17 +250,34 @@ nav#toc .link {
  text-decoration: none;
 }
 
-nav#toc a.bullet {
+/* Triangle bullet */
+/* nav#toc a.bullet {
  opacity: 0.7;
  margin-left: 0.4em;
  margin-right: 0.3em;
  display: inline-block;
- border-left: 0.5em solid;
+ border-right: 0.6em solid;
  border-top: 0.35em solid transparent;
  border-bottom: 0.35em solid transparent;
  vertical-align: baseline;
  width: 0px;
  height: 0px;
+} */
+
+nav#toc a.bullet {
+  opacity: 0.7;
+  margin-left: 0.4em;
+  margin-right: 0.3em;
+  display: inline-block;
+  vertical-align: baseline;
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 50%;
+  border: 1px solid #555;
+}
+
+nav#toc a.bullet:hover {
+  background-color: rgba(0, 100, 255, .2)
 }
 
 nav#toc h2 {
@@ -505,6 +521,8 @@ a.slug:hover,
   background-color: rgba(0, 100, 255, .1);
 }
 
+
+
 a.bullet:hover {
   color: black;
 }
@@ -529,8 +547,6 @@ a {
 blockquote {
   font-style: italic;
 }
-
-
 
 address {
   display: inline;

@@ -10,9 +10,8 @@ function recurse(obj) {
     }
     if (key === 'tex') {
       let isBlock = obj[':@']?.["@_display"] === "block";
-      if (obj.tex.length === 0) return;
       let html = katex.renderToString(
-        obj.tex[0]["#text"],
+        obj.tex[0]?.["#text"] ?? "",
         {
           trust: true,
           throwOnError: false,

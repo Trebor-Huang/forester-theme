@@ -10,6 +10,7 @@ function recurse(obj) {
     }
     if (key === 'tex') {
       let isBlock = obj[':@']?.["@_display"] === "block";
+      if (obj.tex.length === 0) return;
       let html = katex.renderToString(
         obj.tex[0]["#text"],
         {
@@ -51,7 +52,7 @@ async function start() {
   for (const file of files) {
     if (file.endsWith("xml")) {
       console.log("Converting", file);
-      convert(path.join("output", file));
+      await convert(path.join("output", file));
     }
   }
 }
